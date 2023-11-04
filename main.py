@@ -1,20 +1,38 @@
 from visualizer import Visualizer
 import sorters
 
-vis = Visualizer(title = "Sorterings-test", size=(1200, 400))
+visualizer = Visualizer(title="Sorterings algoritmer", size=(1200, 400))
 
-# vis.bar_animation(algorithm = bubble_sort, data = generate_linear_data(150), title = "Bubble sort", time_interval = 0)
-# vis.await_press(key = "c")
-vis.bar_animation(algorithm = sorters.shell_sort, data = sorters.generate_linear_data(600), title = "Shell sort", time_interval = 0)
-# vis.bar_animation(algorithm = selection_sort, data = generate_linear_data(1200), title = "Selection sort", time_interval = 0)
-# vis.bar_animation(algorithm = insertion_sort, data = generate_linear_data(1200), title = "Insertion sort", time_interval = 0)
-# vis.bar_animation(algorithm = sorters.mergeSort, data = sorters.generate_linear_data(600), title = "Merge sort", time_interval = 0)
-# vis.await_press(key = "c")
-# vis.bar_animation(algorithm = selection_sort, data = generate_linear_data(150), title = "Selection sort", time_interval = 0.05)
-# vis.await_press(key = "c")
-# vis.bar_animation(algorithm = insertion_sort, data = generate_linear_data(150), title = "Insertion sort", time_interval = 0.05)
-# vis.await_press(key = "c")
-# vis.bar_animation(algorithm = stalin_sort, data = generate_data_biased(50), title = "Stalin sort", time_interval = 0.1)
-vis.halt()
+# Bubble sort
+visualizer.bar_animation(algorithm=sorters.bubble_sort, data=sorters.generate_linear_data(50), time_interval=0.005, title="Bubble sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+visualizer.box_animation(algorithm=sorters.bubble_sort, data=sorters.generate_linear_ints(5), title="Bubble sort")
+visualizer.sleep(0.6)
+visualizer.bar_animation(algorithm=sorters.bubble_sort, data=sorters.generate_linear_data(120), time_interval=0, title="Bubble sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+# Selection sort
+visualizer.bar_animation(algorithm=sorters.selection_sort, data=sorters.generate_linear_data(50), time_interval=0.2, title="Selection sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+visualizer.box_animation(algorithm=sorters.selection_sort, data=sorters.generate_linear_ints(8), title="Selection sort")
+visualizer.sleep(0.6)
+visualizer.bar_animation(algorithm=sorters.selection_sort, data=sorters.generate_linear_data(600), time_interval=0.008, title="Selection sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+# Insertion sort
+visualizer.bar_animation(algorithm=sorters.insertion_sort, data=sorters.generate_linear_data(50), time_interval=0.3, title="Insertion sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+visualizer.bar_animation(algorithm=sorters.insertion_sort, data=sorters.generate_linear_data(600), time_interval=0.008, title="Insertion sort", expected_big_o="O(n²)")
+visualizer.sleep(0.6)
+# Merge sort
+visualizer.bar_animation(algorithm=sorters.merge_sort, data=sorters.generate_linear_data(50), time_interval=0.04, title="Merge sort", expected_big_o="O(n log(n))")
+visualizer.sleep(0.6)
+visualizer.bar_animation(algorithm=sorters.merge_sort, data=sorters.generate_linear_data(600), time_interval=0, title="Merge sort", expected_big_o="O(n log(n))")
+visualizer.sleep(0.6)
+# Shell sort
+visualizer.bar_animation(algorithm=sorters.shell_sort, data=sorters.generate_linear_data(50), time_interval=0.2, title="Shell sort", expected_big_o="O(n log(n)²)")
+visualizer.sleep(0.6)
+visualizer.box_animation(algorithm=sorters.shell_sort, data=sorters.generate_linear_ints(8), title="Shell sort")
+visualizer.sleep(0.6)
+visualizer.bar_animation(algorithm=sorters.shell_sort, data=sorters.generate_linear_data(600), time_interval=0, title="Shell sort", expected_big_o="O(n log(n)²)")
+visualizer.halt()
 
-vis.quit()
+visualizer.quit()
